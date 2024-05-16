@@ -1,0 +1,21 @@
+/* Definindo as cores globais */
+:root {
+    --background-primary: #171717;
+    --background-secondary: #27272a;
+    --background-third: #3f3f46;
+
+    --text-primary: #f9fafb;
+    --text-secondary: #f3f4f6;
+    --text-third: #e5e7eb;
+
+    --color-primary: #1d4ed8;
+    --color-danger: #ef4444;
+    --color-warning: #f59e0b;
+    --color-sucess: #10b981;
+}
+
+/* Estilizando um elemento usando as cores globais */
+body {
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+}
