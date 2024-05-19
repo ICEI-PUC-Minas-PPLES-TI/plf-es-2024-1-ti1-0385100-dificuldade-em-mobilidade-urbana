@@ -1,0 +1,153 @@
+:root {
+    --background-primary: #171717;
+    --background-secondary: #27272a;
+    --background-third: #3f3f46;
+
+    --text-primary: #f9fafb;
+    --text-secondary: #f3f4f6;
+    --text-third: #e5e7eb;
+
+    --color-primary: #1d4ed8;
+    --color-danger: #ef4444;
+    --color-warning: #f59e0b;
+    --color-sucess: #10b981;
+}
+
+body {
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+    font-family: sans-serif;
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    font-size: 30px;
+}
+
+.tabela {
+    width: 75%;
+    margin: auto;
+    background-color: var(--background-secondary);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: left;
+    border-spacing: 0px 10px;
+}
+
+.tabela tr {
+    border-bottom: 1px solid white;
+    padding: 5px;
+}
+
+.tabela tr:hover {
+    background-color: var(--background-third);
+    border-color: var(--background-third);
+    transition: all .1s;
+}
+
+.tabela tr:last-child {
+    border-bottom: none;
+}
+
+.acoes {
+    display: flex;
+    justify-content: end;
+}
+
+.texto-acoes {
+    text-align: end;
+}
+  
+.botaoExcluir {
+    background-color: var(--color-danger);
+    cursor: pointer;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    margin-left: 10px;
+}
+
+.botaoEditar {
+    background-color: var(--color-primary);
+    cursor: pointer;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+  
+.modal-content {
+    background-color: var(--background-primary);
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+}
+
+.modal h3 {
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.modal input {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+.confirm {
+    display: inline;
+    width: fit-content !important;
+    background-color: var(--color-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.close {
+    display: inline;
+    width: fit-content;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--color-danger);
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.cadastrar {
+    width: 75%;
+    margin: auto;
+    padding: 10px;
+}
+
+.btnCadastrar {
+    display: inline;
+    width: fit-content;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--color-sucess);
+    color: var(--text-primary);
+    cursor: pointer;
+}
