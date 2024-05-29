@@ -1,0 +1,42 @@
+/* Estilo para o botão flutuante */
+.btn-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    border-radius: 15px;
+}
+
+/* Estilo para o menu de alerta flutuante */
+.alert-menu {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    display: none;
+    z-index: 1000;
+    background-color: var(--background-secondary);
+}
+
+.ib-btn-primary {
+    background-color: var(--color-primary);
+    color: var(--text-primary);
+}
+
+.ib-btn-success {
+    background-color: var(--color-success);
+    color: var(--text-primary);
+}
+
+.ib-btn-warning {
+    background-color: var(--color-warning);
+    color: var(--text-primary);
+}
+
+.ib-btn-danger {
+    background-color: var(--color-danger);
+    color: var(--text-primary);
+}
+
+.modal-content {
+    background-color: var(--background-secondary);
+}
