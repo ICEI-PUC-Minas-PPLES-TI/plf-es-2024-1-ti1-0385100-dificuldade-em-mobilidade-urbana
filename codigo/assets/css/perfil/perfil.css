@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #3d3b3b;
+    color: #adadad;
+    padding: 10px;
+}
+
+/*.pagina {
+    display: flex;
+    margin: 10px;
+}*/
+
+.nomeInicial {
+    color: #3d3b3b;
+    margin-top: 75px;
+}
+.nomeInicial h1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+.infoGeral {
+    margin: 0px;
+}
+
+.layouts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgPerfil img{
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 50%;
+}
+.layouts img{
+    margin-top: 15px;
+    margin-right: 10px;
+}
+.nomeInfo{
+    display: inline;
+}
+
+.email{
+    display: inline;
+}
+
+.btn-padrao{
+    color: #ffffff;
+    background-color: #3d3b3b;
+    border-radius: 15px;
+}
+.senha{
+    display: inline;
+}
+.layoutUm img{
+    max-width: 350px;
+    max-height: 700px;
+    cursor: pointer;
+
+}
+.layoutDois img{
+    max-width: 350px;
+    max-height: 700px;
+    cursor: pointer;
+
+}
+
+
+@media screen and (max-width: 600px){
+    .layouts{
+        display: block;
+    }
+    .imgPerfil img{
+        width: 150px;
+        height: 150px;
+    }
+    .layouts img{
+        margin-top: 15px;
+        margin-right: 10px;
+    }
+    .nomeInfo{
+        display: block;
+    }
+    .email{
+        display: block;
+    }
+    .senha{
+        display: block;
+    }
+    
+}
