@@ -52,7 +52,7 @@ function atualizarTabela() {
 }
 
 async function abrirModalEditar(id) {
-    const response = await fetch(`${API_URL}paradas/${id}`)
+    const response = await fetch(`${API_URL}/paradas/${id}`)
     .catch((error) => {alert('Erro ao buscar dados!')});
     
     const data = await response.json();
