@@ -65,43 +65,51 @@ $("#sendBtn").click(function(e) {
 
 
 // Função para adicionar endereço
-function adicionarEndereco() {
+async function adicionarEndereco() {
     let id = Math.floor(Math.random() * 1000000);
     document.getElementById("enderecoId").value = id;
 
-    let titulo = document.getElementById("inputTitulo");
-    let rua = document.getElementById("inputRua");
-    let numero = document.getElementById("inputNum");
-    let cep = document.getElementById("inputCep");
-    let estado = document.getElementById("inputEstado");
-    let cidade = document.getElementById("inputCidade");
+    let titulo = document.getElementById("inputTitulo").value;
+    let rua = document.getElementById("inputRua").value;
+    let numero = document.getElementById("inputNum").value;
+    let cep = document.getElementById("inputCep").value;
+    let estado = document.getElementById("inputEstado").value;
+    let cidade = document.getElementById("inputCidade").value;
 
-    fetch('https://viacep.com.br/ws/'+cep.value+'/json/')
-    .then(response => response.json())
-    .then(data => {
-        rua.value = data.logradouro;
-        estado.value = data.uf;
-        cidade.value = data.localidade;
-        cep.value = data.cep;
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-        return;
-    });
+    if(cep) {
+        try{
+            const response = await fetch('https://viacep.com.br/ws/'+cep+'/json/')
+            const data = await response.json();
 
-    if (!titulo || !rua || !numero || !cep || !estado || !cidade) {
+            rua = data.logradouro;
+            estado = data.uf;
+            cidade = data.localidade;
+            cep = data.cep;
+        }catch(err){
+            console.log('Erro: ' + err);
+        }
+    }
+
+    if(!cep || !titulo) {
+        if( !rua || !numero || !estado || !cidade) {
+            alert("Preencha todos os campos");
+            return;
+        }
+    }else if(!cep && ( !rua || !numero || !estado || !cidade )) {
         alert("Preencha todos os campos");
         return;
-    };
+    }
+
+    console.log(titulo, rua, numero, cep, estado, cidade);
 
     let endereco = {
         "id": id,
-        "titulo": titulo.value,
-        "rua": rua.value,
-        "numero": numero.value,
-        "cep": cep.value,
-        "estado": estado.value,
-        "cidade": cidade.value
+        "titulo": titulo,
+        "rua": rua,
+        "numero": numero,
+        "cep": cep,
+        "estado": estado,
+        "cidade": cidade
     };
 
     let enderecos = getEnderecos();
@@ -111,8 +119,8 @@ function adicionarEndereco() {
 
     enderecos.push(endereco);
     setEnderecos(enderecos);
-
     $('#modalEndereco').modal('hide');
+    loadElements();
 };
 
 // Função para editar endereço
@@ -147,16 +155,16 @@ function removerEndereco(id) {
     }
 };
 
-
-// Agora o resto do código para manipular a DOM e exibir os endereços dinamicamente
-window.onload = function() {
+async function loadElements() {
     let enderecos = getEnderecos();
     let listaEnderecos = document.getElementById("enderecos");
 
-    if (!enderecos) {
+    if (enderecos === null || enderecos.length === 0) {
         listaEnderecos.innerHTML = `<div class="col-12"><h4 class="text-center">Nenhum endereço encontrado!</h4></div>`;
         return;
-    };
+    }else{
+        listaEnderecos.innerHTML = "";
+    }
 
     enderecos.forEach(endereco => {
         let enderecoHtml = `
@@ -192,4 +200,7 @@ window.onload = function() {
         `;
         listaEnderecos.innerHTML += enderecoHtml;
     });
-};
+}
+// Agora o resto do código para manipular a DOM e exibir os endereços dinamicamente
+window.onload = loadElements();
+
