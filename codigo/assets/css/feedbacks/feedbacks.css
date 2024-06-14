@@ -1,0 +1,58 @@
+/* Estilo para o botão flutuante */
+.btn-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+}
+
+/* Estilo para outras cores */
+.background-secondary {
+    background-color: var(--background-secondary);
+}
+
+/* Estilo para o modal */
+.modal-content {
+    background-color: var(--background-secondary);
+}
+
+/* Estilo para a nota de estrelas */
+.estrelas {
+    cursor: default;
+}
+
+.estrelas input[type=radio] {
+  display: none;
+}
+
+.estrelas label i.fa:before {
+  content:'\f005';
+  color: #FC0;
+  cursor: pointer;
+}
+
+.estrelas input[type=radio]:checked ~ label i.fa:before {
+  color: #CCC;
+}
+
+/* Estilo para o card de feedback */
+.row {
+    margin: 0;
+}
+
+.feedback-card {
+    background-color: var(--background-secondary);
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.route-color {
+    color: #0099ff;
+}
+
+.nota-color {
+    color: #FFD700;
+}
