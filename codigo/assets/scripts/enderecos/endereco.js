@@ -188,7 +188,7 @@ async function loadElements() {
                             <div class="col-sm-2 mt-sm-0 col-auto mt-3">
                                 <button class="btn ib-btn-danger btn-sm card-delete-btn" onclick="removerEndereco(${endereco.id})"><i class="fa fa-trash-alt"></i></button>
                             </div>
-                        </div>
+                            </div>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">
