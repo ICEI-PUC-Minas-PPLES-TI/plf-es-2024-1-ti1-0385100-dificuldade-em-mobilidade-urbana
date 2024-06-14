@@ -19,10 +19,10 @@ body {
     margin-left: 20px;
     margin-top: 5px;
 }
-
-#adicionarEnd
-{
+/*Botão dinamicamente no canto inferior direito*/
+#adicionarEnd{
     position: fixed;
     bottom: 20px;
-    right: 20px;    
+    right: 20px;
+    z-index: 1000;
 }

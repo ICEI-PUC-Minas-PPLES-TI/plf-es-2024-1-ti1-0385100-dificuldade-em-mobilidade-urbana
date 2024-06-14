@@ -49,11 +49,11 @@
               </div>
               <div class="col-3">
                 <label for="inputNum" class="form-label">Número</label>
-                <input type="text" class="form-control" id="inputNum" placeholder="Nº">
+                <input type="number" class="form-control" id="inputNum" placeholder="Nº">
               </div>
               <div class="col-md-4">
                 <label for="inputCep" class="form-label">CEP:</label>
-                <input type="text" class="form-control" id="inputCep">
+                <input type="text" class="form-control" id="inputCep" onkeyup="cepFunc(this);">
               </div>
               <div class="col-md-4">
                 <label for="inputCidade" class="form-label">Cidade</label>
@@ -74,6 +74,7 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../assets/scripts/enderecos/dbOperations.js"></script>
     <script src="../assets/scripts/enderecos/endereco.js"></script>
 </body>
 

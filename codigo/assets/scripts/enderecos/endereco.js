@@ -1,17 +1,3 @@
-// Pegar endereços do localStorage
-function getEnderecos() {
-    let enderecos = localStorage.getItem("enderecos");
-    if (!enderecos) {
-        return null;
-    };
-    return JSON.parse(enderecos);
-};
-
-// Salvar endereços no localStorage
-function setEnderecos(enderecos) {
-    localStorage.setItem("enderecos", JSON.stringify(enderecos));
-};
-
 // Limpar modal
 function limparModal() {
     document.getElementById("enderecoId").value = "";
@@ -27,8 +13,7 @@ function limparModal() {
 
 // Preenchendo e abrindo modal para editar endereço
 function editEnderecoModal(id) {
-    let enderecos = getEnderecos();
-    let endereco = enderecos.find(endereco => endereco.id === id);
+    let endereco = getEnderecoById(id);
 
     limparModal();
 
@@ -38,7 +23,7 @@ function editEnderecoModal(id) {
     document.getElementById("inputTitulo").value = endereco.titulo;
     document.getElementById("inputRua").value = endereco.rua;
     document.getElementById("inputNum").value = endereco.numero;
-    document.getElementById("inputCep").value = endereco.cep;
+    document.getElementById("inputCep").value = endereco.cep || "";
     document.getElementById("inputEstado").value = endereco.estado;
     document.getElementById("inputCidade").value = endereco.cidade;
 
@@ -63,6 +48,30 @@ $("#sendBtn").click(function(e) {
     };
 });
 
+async function cepFunc(cep) {
+    var valor = cep?.value;
+    valor = valor.replace(/\D/g,"")                    //Remove tudo o que não é dígito
+                 .replace(/^(\d{5})(\d)/,"$1-$2")     //Coloca hífen entre o quinto e o sexto dígitos
+                 .replace(/(\d{5}-\d{3}).*/,"$1");    //Remove qualquer coisa após o nono caractere
+    cep.value = valor;
+    console.log(cep.value);
+
+    if (cep) {
+        try {
+            const response = await fetch('https://viacep.com.br/ws/'+cep.value+'/json/')
+            const data = await response.json();
+            console.log(data);
+
+            document.getElementById("inputRua").value = data.logradouro;
+            document.getElementById("inputEstado").value = data.uf;
+            document.getElementById("inputCidade").value = data.localidade;
+            document.getElementById("inputCep").value = data.cep;
+        } catch(err) {
+            console.log('Erro: ' + err);
+        }
+    };
+};
+
 
 // Função para adicionar endereço
 async function adicionarEndereco() {
@@ -76,31 +85,17 @@ async function adicionarEndereco() {
     let estado = document.getElementById("inputEstado").value;
     let cidade = document.getElementById("inputCidade").value;
 
-    if(cep) {
-        try{
-            const response = await fetch('https://viacep.com.br/ws/'+cep+'/json/')
-            const data = await response.json();
-
-            rua = data.logradouro;
-            estado = data.uf;
-            cidade = data.localidade;
-            cep = data.cep;
-        }catch(err){
-            console.log('Erro: ' + err);
-        }
-    }
-
-    if(!cep || !titulo) {
-        if( !rua || !numero || !estado || !cidade) {
+    if (!cep || !titulo) {
+        if (!rua || !numero || !estado || !cidade || !titulo) {
             alert("Preencha todos os campos");
             return;
         }
-    }else if(!cep && ( !rua || !numero || !estado || !cidade )) {
+    } else if (!cep && ( !rua || !numero || !estado || !cidade )) {
         alert("Preencha todos os campos");
         return;
-    }
+    };
 
-    console.log(titulo, rua, numero, cep, estado, cidade);
+    // console.log(titulo, rua, numero, cep, estado, cidade);
 
     let endereco = {
         "id": id,
@@ -128,7 +123,7 @@ function editarEndereco() {
     let id = document.getElementById("enderecoId").value;
 
     let enderecos = getEnderecos();
-    let endereco = enderecos.find(endereco => endereco.id === id);
+    let endereco = enderecos.find(endereco => endereco.id == id);
 
     endereco.titulo = document.getElementById("inputTitulo").value;
     endereco.rua = document.getElementById("inputRua").value;
@@ -180,7 +175,7 @@ async function loadElements() {
                                 <p class="card-text my-2"><b>Estado:</b> ${endereco.estado}</p>
                                 <p class="card-text my-2"><b>Rua:</b> ${endereco.rua}</p>
                                 <p class="card-text my-2"><b>Número:</b> ${endereco.numero}</p>
-                                <p class="card-text my-2"><b>CEP:</b> ${endereco.cep}</p>
+                                ${endereco.cep ? `<p class="card-text my-2"><b>CEP:</b> ${endereco.cep}</p>` : ""}
                             </div>
                             <div class="col-sm-2 mt-sm-0 col-auto mt-3">
                                 <button class="btn ib-btn-warning btn-sm card-edit-btn" onclick="editEnderecoModal(${endereco.id})"><i class="fa fa-pen-to-square"></i></button>
@@ -203,4 +198,3 @@ async function loadElements() {
 }
 // Agora o resto do código para manipular a DOM e exibir os endereços dinamicamente
 window.onload = loadElements();
-
