@@ -143,9 +143,9 @@ function removerEndereco(id) {
     let enderecos = getEnderecos();
     let endereco = enderecos.find(endereco => endereco.id === id);
 
-    let confirm = confirm(`Deseja realmente deletar ${endereco.titulo}?\n\nCidade: ${endereco.cidade}\nEstado: ${endereco.estado}\nRua: ${endereco.rua}\nNúmero: ${endereco.numero}\nCEP: ${endereco.comentario}`);
+    let confirmado = confirm(`Deseja realmente deletar ${endereco.titulo}?\n\nCidade: ${endereco.cidade}\nEstado: ${endereco.estado}\nRua: ${endereco.rua}\nNúmero: ${endereco.numero}\nCEP: ${endereco.comentario}`);
 
-    if (confirm) {
+    if (confirmado) {
         let novos = enderecos.filter(endereco => endereco.id !== id);
         setEnderecos(novos);
         loadElements();
