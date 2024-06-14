@@ -135,6 +135,7 @@ function editarEndereco() {
     setEnderecos(enderecos);
 
     $('#modalEndereco').modal('hide');
+    loadElements();
 };
 
 // Função para remover endereço
@@ -147,6 +148,7 @@ function removerEndereco(id) {
     if (confirm) {
         let novos = enderecos.filter(endereco => endereco.id !== id);
         setEnderecos(novos);
+        loadElements();
     }
 };
 
@@ -157,14 +159,14 @@ async function loadElements() {
     if (enderecos === null || enderecos.length === 0) {
         listaEnderecos.innerHTML = `<div class="col-12"><h4 class="text-center">Nenhum endereço encontrado!</h4></div>`;
         return;
-    }else{
+    } else {
         listaEnderecos.innerHTML = "";
     }
 
     enderecos.forEach(endereco => {
         let enderecoHtml = `
             <div class="col-12 col-sm-6 col-md-4 mb-4">
-                <div class="card h-100">
+                <div class="card h-100 endereco-card">
                     <div class="card-header">
                         <h5 class="card-title">${endereco.titulo}</h5>
                     </div>

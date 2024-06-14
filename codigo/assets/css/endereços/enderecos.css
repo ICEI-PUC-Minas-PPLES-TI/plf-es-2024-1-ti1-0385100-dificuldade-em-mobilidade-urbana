@@ -26,3 +26,9 @@ body {
     right: 20px;
     z-index: 1000;
 }
+
+.endereco-card {
+    background-color: var(--background-secondary);
+    border-radius: 10px;
+    margin: 5px;
+}
