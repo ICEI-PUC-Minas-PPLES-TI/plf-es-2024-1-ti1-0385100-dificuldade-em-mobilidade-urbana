@@ -9,13 +9,92 @@
     --text-third: #e5e7eb;
 
     --color-primary: #1d4ed8;
+    --color-primary-hover: #1e40af;
+    --color-primary-active: #1e3a8a;
+
     --color-danger: #ef4444;
+    --color-danger-hover: #dc2626;
+    --color-danger-active: #b91c1c;
+
     --color-warning: #f59e0b;
+    --color-warning-hover: #d97706;
+    --color-warning-active: #b45309;
+
     --color-success: #10b981;
+    --color-success-hover: #047857;
+    --color-success-active: #065f46;
 }
 
 /* Estilizando um elemento usando as cores globais */
 body {
     background-color: var(--background-primary);
     color: var(--text-primary);
+}
+
+/* Botão primary */
+.ib-btn-primary {
+    background-color: var(--color-primary);
+    color: var(--text-primary);
+    border: 0;
+}
+.ib-btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    color: var(--text-primary);
+    border: 0;
+}
+.ib-btn-primary:active:focus {
+    background-color: var(--color-primary-active);
+    color: var(--text-primary);
+    border: 0;
+}
+
+/* Botão success */
+.ib-btn-success {
+    background-color: var(--color-success);
+    color: var(--text-primary);
+    border: 0;
+}
+.ib-btn-success:hover {
+    background-color: var(--color-success-hover);
+    color: var(--text-primary);
+    border: 0;
+}
+.ib-btn-success:active:focus {
+    background-color: var(--color-success-active);
+    color: var(--text-primary);
+    border: 0;
+}
+
+/* Botão warning */
+.ib-btn-warning {
+    background-color: var(--color-warning);
+    color: var(--text-primary);
+    border: 0;
+}
+.ib-btn-warning:hover {
+    background-color: var(--color-warning-hover);
+    color: var(--text-primary);
+    border: 0;
+}
+.ib-btn-warning:active:focus {
+    background-color: var(--color-warning-active);
+    color: var(--text-primary);
+    border: 0;
+}
+
+/* Botão danger */
+.ib-btn-danger {
+    background-color: var(--color-danger);
+    color: var(--text-primary);
+    border: 0;
+}
+.ib-btn-danger:hover {
+    background-color: var(--color-danger-hover);
+    color: var(--text-primary);
+    border: 0;
+}
+.ib-btn-danger:active:focus {
+    background-color: var(--color-danger-active);
+    color: var(--text-primary);
+    border: 0;
 }
