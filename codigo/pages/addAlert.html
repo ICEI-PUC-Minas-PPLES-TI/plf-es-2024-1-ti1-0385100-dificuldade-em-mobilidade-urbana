@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alertas de Rotas de Ônibus</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/addAlert/addAlert.css">
+  <link rel="stylesheet" href="../assets/css/global.css">
+</head>
+<body>
+
+  <!-- Botão Flutuante -->
+  <button class="btn ib-btn-primary btn-float" id="alertButton">Criar Alerta</button>
+
+  <!-- Menu de Alerta -->
+  <div class="card alert-menu" id="alertMenu">
+    <div class="card-header">
+      Selecione o Tipo de Alerta
+    </div>
+    <div class="card-body">
+      <button class="btn ib-btn-danger btn-block mb-2 btn-alert" value="engarrafamento">Engarrafamento</button>
+      <button class="btn ib-btn-warning btn-block mb-2 btn-alert" value="acidente">Acidente</button>
+      <button class="btn ib-btn-primary btn-block mb-2 btn-alert" value="incidente_rua">Incidente na Rua</button>
+      <button class="btn ib-btn-success btn-block mb-2 btn-alert" value="desvio_rota">Desvio de Rota</button>
+    </div>
+  </div>
+
+  <!-- Modal de Alerta Criado -->
+  <div id="alert_success_modal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Alerta enviado com sucesso!</h5>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li><strong>Tipo:</strong> <span id="alert_type"></span></li>
+            <li><strong>Localização:</strong> <span id="alert_location"></span></li>
+            <li><strong>Horário:</strong> <span id="alert_time"></span></li>
+          </ul>
+        </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="../assets/scripts/addAlert/addAlert.js"></script>
+  <script>
+    $(document).ready(function(){
+      // Toggle do menu de alerta
+      $('#alertButton').click(function() {
+        $('#alertMenu').toggle();
+      });
+    });
+
+    // Esconder o menu se o usuário clicar fora dele
+    window.onclick = function(e) {
+        if (!e.target.matches('#alertButton') && !e.target.closest('#alertMenu')) {
+            $('#alertMenu').hide();
+        }
+    }
+  </script>
+</body>
+</html>
