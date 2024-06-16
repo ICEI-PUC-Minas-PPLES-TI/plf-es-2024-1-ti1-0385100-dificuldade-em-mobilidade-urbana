@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Gerenciador de Cartões de Crédito</title>
+</head>
+<body>
+        <header>
+            <nav>
+                <a class="titulosite" href="#">IDEALBUS</a>
+                <a class="navbar" href="rotas.html">Rotas</a>
+                <a class="navbar" href="favoritos.html">Favoritos</a>
+                <a class="navbar" href="#">Link3</a>
+                <a class="navbar" href="#">Link4</a>
+                <a class="navbar" href="#">Help</a>
+            </nav>
+            <div class="fotoperfil">
+                <img src="file.png" alt="FotoPerfil" class="imgfotoperfil">
+            </div>
+        </header>
+        
+    <div class="titulopagina">
+            <h1>Cadastrar Cartão de Crédito</h1>
+    </div>
+    <main>
+        <div id="conteudo">
+            <form id="cadastracartao">
+                <label for="nome">Nome do Titular:</label>
+                <input type="text" id="nome" required><br>
+                <label for="num">Número do Cartão:</label>
+                <input type="text" id="num" required><br>
+                <label for="validade">Data de Validade (MM/YY):</label>
+                <input type="text" id="validade" placeholder="MM/YY" required><br>
+                <label for="cvc">Código CVC:</label>
+                <input type="text" id="cvc" required><br>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+        <h2>Cartões Cadastrados</h2>
+        <div id="cadastrados">
+            <div id="listacartoes"></div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

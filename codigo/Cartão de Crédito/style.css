@@ -1,0 +1,89 @@
+:root {
+    --background-primary: #171717;
+    --background-secondary: #27272a;
+    --background-third: #3f3f46;
+
+    --text-primary: #f9fafb;
+    --text-secondary: #f3f4f6;
+    --text-third: #e5e7eb;
+
+    --color-primary: #1d4ed8;
+    --color-danger: #ef4444;
+    --color-warning: #f59e0b;
+    --color-sucess: #10b981;
+}
+*{
+    margin: 0%; padding: 0;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+}
+
+
+
+/* Estilizando um elemento usando as cores globais */
+header{
+    display: flex; flex-direction: row;
+    align-items: center;
+    background-color: var(--background-secondary);
+    box-shadow: 1px 1px 4px rgb(16, 16, 16);
+    justify-content: space-between;
+    height: 50px;
+    padding: 0 5%;
+}
+.imgfotoperfil{
+    width: 40px;
+}
+.titulosite{
+    color: var(--text-primary);
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    padding-right: 1em;
+}
+.navbar{
+    color: var(--text-primary);
+    text-decoration: none;
+    padding-right: 1em;
+}
+/* Estilizando o header*/
+
+
+.titulopagina{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+h1{
+    font-size: 50px;
+}
+
+/* Estilizando o Título da Página*/
+
+
+#conteudo{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+
+h2{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+#cadastrados{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+#listacartoes{
+    display: flex;
+    justify-content: center;
+}
+.card{
+    padding: 2%;
+}
