@@ -1,0 +1,34 @@
+.btn-padrao{
+    color: #ffffff;
+    background-color: #3d3b3b;
+    border-radius: 15px;
+}
+
+header {
+    background-color: #3d3b3b;
+    color: #adadad;
+    padding: 10px;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#titulo{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+/*Botão dinamicamente no canto inferior direito*/
+#adicionarEnd{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.endereco-card {
+    background-color: var(--background-secondary);
+    border-radius: 10px;
+    margin: 5px;
+}
