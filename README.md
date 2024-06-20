@@ -1,6 +1,6 @@
 # Mobilidade Urbana
 
-Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
+A Ideal Bus tem como objetivo principal sanar diversos desafios que afetam a experiência dos usuários no transporte público por ônibus.
 
 ## Alunos integrantes da equipe
 
