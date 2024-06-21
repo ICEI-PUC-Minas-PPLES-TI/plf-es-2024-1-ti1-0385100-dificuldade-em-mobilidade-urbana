@@ -1,0 +1,72 @@
+/* Definindo as cores globais */
+:root {
+    --background-primary: #171717;
+    --background-secondary: #27272a;
+    --background-third: #3f3f46;
+
+    --text-primary: #f9fafb;
+    --text-secondary: #f3f4f6;
+    --text-third: #e5e7eb;
+
+    --color-primary: #1d4ed8;
+    --color-danger: #ef4444;
+    --color-warning: #f59e0b;
+    --color-success: #10b981;
+}
+
+/* Estilos para o body e container principal */
+body {
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Estilos para as caixas de conteúdo (Estimativa de Chegada e Alertas de Rotas) */
+.box {
+    background-color: var(--background-secondary);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.box h2 {
+    color: var(--text-primary);
+}
+
+/* Estilos para os alertas */
+.alert-item {
+    background-color: var(--background-third);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.alert-item h5 {
+    color: var(--color-danger);
+    margin-bottom: 8px;
+}
+
+.alert-item p {
+    color: var(--text-third);
+}
+
+/* Estilos para o rodapé */
+footer {
+    background-color: var(--background-secondary);
+    color: var(--text-third);
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
