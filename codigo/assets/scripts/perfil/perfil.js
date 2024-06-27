@@ -1,44 +1,6 @@
-var clientes = getClientes();
-
-if (!clientes) {
-    clientes = [
-        {
-            "id": 1,
-            "nome": "Fulano da Silva",
-            "email": "fulano@gmail.com",
-            "senha": "1234A",
-            "template": 1,
-            "favoritos": [1, 2],
-            "img_url": "https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg?w=826"
-        }
-    ];
-
-    setClientes(clientes);
-};
-
-console.log(clientes);
-
-// Escolher um cliente aleatoriamente para simular a sessão
-let cod = Math.floor(Math.random() * clientes.length) + 1;
-var cliente = clientes.find(c => c.id == cod);
-console.log(cliente);
-
-var nameElements = document.getElementsByClassName("nameElements");
-for (let i = 0; i < nameElements.length; i++) {
-    nameElements[i].innerHTML = cliente.nome;
-};
-
-var emailElement = document.getElementById("emailElement");
-emailElement.innerHTML = cliente.email;
-
-var passwordElement = document.getElementById("passwordElement");
-passwordElement.innerHTML = cliente.senha;
-
-var imgElement = document.getElementById("imgElement");
-imgElement.src = cliente.img_url;
+const params = new URLSearchParams(window.location.search);
 
 function trocarTemplate(idTemplate) {
-    console.log(idTemplate);
     cliente.template = idTemplate;
     setClientes(clientes);
     alert("Template alterado com sucesso!");
@@ -66,19 +28,27 @@ function trocarEmail() {
     alert("Email alterado com sucesso!");
 };
 
-function removerCliente() {
-    let clienteIndex = clientes.findIndex(c => c.id === cliente.id);
-    clientes.splice(clienteIndex, 1);
-    setClientes(clientes);
-    alert("Conta deletada com sucesso!");
+async function getClientes() {
+    const email = params.get('email');
+    const response = await fetch(`https://idealbus.discloud.app/getinfo/${email}`, {
+        method: 'GET',
+    });
+
+    const data = await response.json();
+
+    document.getElementById("imgElement").src = data.img_url || "https://pbs.twimg.com/media/EyQ9kUUXIAIDZXr.jpg";
+    document.getElementById("emailElement").innerHTML = data.email;
+    document.getElementById("nameElements").innerHTML = data.nome;
 };
 
+function sendFavs() {
+    const email = params.get('email');
+    return window.location.href = '../user/favoritas.html?email=' + email;
+}
 
-function setClientes(clientes) {
-    localStorage.setItem('clientes', JSON.stringify(clientes));
-};
+function sendMap() {
+    const email = params.get('email');
+    return window.location.href = '../mains/map.html?email=' + email;
+}
 
-function getClientes() {
-    return JSON.parse(localStorage.getItem('clientes'));
-};
-
+getClientes();
