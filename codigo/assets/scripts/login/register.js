@@ -12,10 +12,14 @@ async function register() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ nome: name, email, senha: password, layout: 1 })
-    });
+        body: JSON.stringify({ nome: name, email: email, senha: password, layout: 1 })
+    })
     const data = await response.json();
 
-    if(response.status === 409) return alert(data.message);
-    if(response.status === 200) return window.location.href = '../mains/map.html?email=' + email;
+    if(response.status === 400) return alert(data.message);
+    if(response.status === 200) {
+        alert('Usuário cadastrado com sucesso');
+        localStorage.setItem('token', data.token);
+        window.location.href = '../dashboard/dashboard.html';
+    }
 }

@@ -13,7 +13,11 @@ async function login() {
         body: JSON.stringify({ email, senha: password })
     });
     const data = await response.json();
+    console.log(response.status)
 
     if(response.status === 401) return alert(data.message);
-    if(response.status === 200) return window.location.href = '../mains/map.html?email=' + email;
+    if(response.status === 200) {
+        localStorage.setItem('token', email);
+        window.location.href = '../mains/map.html';
+    }
 }
