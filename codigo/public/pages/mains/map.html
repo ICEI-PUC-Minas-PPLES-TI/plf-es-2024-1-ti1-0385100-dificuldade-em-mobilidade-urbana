@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ideal Bus</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="../../assets/css/mains/map.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../assets/css/global.css">
+</head>
+<body>
+    <header>
+        <a href="">
+            <img src="../../assets/images/IdealBus.png" alt="" class="headerLogo">
+        </a>
+        <div class="headerBtns">
+            <button class="headerBtn" onclick="sendFavs()">
+                Favoritas
+            </button>
+            <button class="headerImg" onclick="sendProfile()">
+                <i class='bx bxs-user-circle'></i>
+            </button>
+        </div>
+    </header>
+    
+    <div id="map"/>
+
+    <div class="seletor searchStops" id="searchStops">
+        <h1>Seletor de endereço</h1>
+        <span>Endereço</span>
+        <input type="text" name="Endereco" id="search" placeholder="Digite aqui o endereço inicial">
+        <div id="suggestions" class="suggestions"></div>
+    </div>
+
+    <div class="seletor selectRoute" id="selectRoute">
+        <div class="seletorTitle">
+            <button onclick="backButton()">
+                <i class='bx bx-arrow-from-right'></i>
+            </button>
+            <h1>Selecione sua rota</h1>
+        </div>
+        <div id="routesBox" class="suggestions"></div>
+    </div>
+
+
+    <div class="alertas" id="alertas">
+        <h1>Alertas de rota</h1>
+
+        <div class="alert timer">
+            <div class="icon">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAV1JREFUSEuNVdsBhCAMK6M52elmbuYJVFqaFPXrzkIfSRqLjKeIyGV/V7/80eW1IjX88tRDl5Ym2fRVVqfwwHzLzuTtQsSlICC9tEVmzlBzEKVDdm5amMAFvcylJg54F1/In89oL9pQBMiio2uvriLyu+c5VuJLCmRi8rC0M1XLp4hsvhd/OyKhMTIm1GzFLrctXejPCzL9RHLT+xKiFhz5QYlkpF6AiNgvlxUeEMXZKlwnNtdTZ492GmX3TAnI7lLkUAhGEPfA5h5YfBHqnXG/sQjqeryIZAA4fWHgSTZVFnhn9yLCgZcGcGDFTt2JKlsHy2OOgYNlHVPDpaI4i8iGzc3cIAfAHQhdF61sYcNnSwcN3xIIUFB1eat4cZWm/2QCsId5VxYKiIQmHxzqHi9fvkCyNpFysMwGtFDj/Q6R5SOZvdekXkQQWW5vFhywmGkmi+YrzoTzGYhf6WR/BD7FJb+fThAAAAAASUVORK5CYII="/>
+            </div>
+            <div class="alertTexts">
+                <h2>Parada 1</h2>
+                <p>Tempo estimado: 5 minutos</p>
+            </div>
+        </div>
+        <div class="alert timer">
+            <div class="icon">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAV1JREFUSEuNVdsBhCAMK6M52elmbuYJVFqaFPXrzkIfSRqLjKeIyGV/V7/80eW1IjX88tRDl5Ym2fRVVqfwwHzLzuTtQsSlICC9tEVmzlBzEKVDdm5amMAFvcylJg54F1/In89oL9pQBMiio2uvriLyu+c5VuJLCmRi8rC0M1XLp4hsvhd/OyKhMTIm1GzFLrctXejPCzL9RHLT+xKiFhz5QYlkpF6AiNgvlxUeEMXZKlwnNtdTZ492GmX3TAnI7lLkUAhGEPfA5h5YfBHqnXG/sQjqeryIZAA4fWHgSTZVFnhn9yLCgZcGcGDFTt2JKlsHy2OOgYNlHVPDpaI4i8iGzc3cIAfAHQhdF61sYcNnSwcN3xIIUFB1eat4cZWm/2QCsId5VxYKiIQmHxzqHi9fvkCyNpFysMwGtFDj/Q6R5SOZvdekXkQQWW5vFhywmGkmi+YrzoTzGYhf6WR/BD7FJb+fThAAAAAASUVORK5CYII="/>
+            </div>
+            <div class="alertTexts">
+                <h2>Parada 2</h2>
+                <p>Tempo estimado: 10 minutos</p>
+            </div>
+        </div>
+
+        <div class="alert danger">
+            <div class="icon">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAY1JREFUSEuNVVGiwyAICzfznWx7J/PdrK8qSBTsto+taxFCEqigfQTA1b/W6/5w/WhUuCu42uk0PsmQp5lY+MQ5dGJP6uotPjy6rMBVRs+CJ9RMyJotQaS3XnfgW4Pb7+8ZmT9pZ78hucXsFItLF1qdOUeB83MLZPTW8fvm7NyFVl8KeJ2F3yJANfib4SQz327KqcFBtAU9H1ZNehdn+z4rVQCpJ7eQO2iUVr4XkZki1dTRD+iiw8hT9egoKqC8e5Xm97p7TB8HR7Exe8e2GHJhe7HXncV8b+eHNbUNou7QRcuTzoEUwTWdQyEWb0uLhzTm6tNOI+Gt6UqwNn3KqEBwzuxikTmxl3O/efJkxqRDh50UaMK2Ih9XN7Oref4A/Oz3+X+BoKavBbYp76XQJcwIHeG+iyoEJX1zDBgW73PAOo3r0YUW5gKD+xPvQfAwNyyRC04aDO4TUdhpgZ181Uwt2Lvxlbr4jd7b+fDwTGwFAuqQOcH5TYyJ5p5Mrf7I2uM23lbFZ0wsbFI2Whb/GnO1IQsr2E8AAAAASUVORK5CYII="/>
+            </div>
+            <div class="alertTexts">
+                <h2>Parada 1</h2>
+                <p>Alerta de perigo na região</p>
+            </div>
+        </div>
+        <div class="alert danger">
+            <div class="icon">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAY1JREFUSEuNVVGiwyAICzfznWx7J/PdrK8qSBTsto+taxFCEqigfQTA1b/W6/5w/WhUuCu42uk0PsmQp5lY+MQ5dGJP6uotPjy6rMBVRs+CJ9RMyJotQaS3XnfgW4Pb7+8ZmT9pZ78hucXsFItLF1qdOUeB83MLZPTW8fvm7NyFVl8KeJ2F3yJANfib4SQz327KqcFBtAU9H1ZNehdn+z4rVQCpJ7eQO2iUVr4XkZki1dTRD+iiw8hT9egoKqC8e5Xm97p7TB8HR7Exe8e2GHJhe7HXncV8b+eHNbUNou7QRcuTzoEUwTWdQyEWb0uLhzTm6tNOI+Gt6UqwNn3KqEBwzuxikTmxl3O/efJkxqRDh50UaMK2Ih9XN7Oref4A/Oz3+X+BoKavBbYp76XQJcwIHeG+iyoEJX1zDBgW73PAOo3r0YUW5gKD+xPvQfAwNyyRC04aDO4TUdhpgZ181Uwt2Lvxlbr4jd7b+fDwTGwFAuqQOcH5TYyJ5p5Mrf7I2uM23lbFZ0wsbFI2Whb/GnO1IQsr2E8AAAAASUVORK5CYII="/>
+            </div>
+            <div class="alertTexts">
+                <h2>Parada 2</h2>
+                <p>Alerta de perigo na região</p>
+            </div>
+        </div>
+
+        <div class="alert warn">
+            <div class="icon">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAeVJREFUSEuNVgGy6yAIXE5Wc7KkJ4vvZH5BRFCT3850aoxZYHchJQJQ0D5+vd/Qg/6mPBRRCCVgRuSniEt0HyyuZwi7O5L5D5oe1EwTQJ9axld5SED5VELkml4T/o0zDnArTzdAHOAAkJmaEGBQS/A8LpRHgc56eQ2S6JJqrEpH3z5hDaY3CUgFEAp0KwG4J5hB+6uLAC7/FJ8RklljoGUATMdZca7mRkkoF9nndZSYr+aMZrswKH87LfzLgna3H7XK3JzbA4wylE/bYCD+MEBf965JhHJr1kQoZ133oJa4E1lALQsBjHbcGb8LfBHw1Yd5j9n5jgraDtvrrlxnFOFVG3CoG1tezjMY68TJdaqC3k4D416E8003GgoNcDMeVIIliO+DJm6rgDn/qHPSkCgaWcRUF6noawBHxVkzVav9PJ6O0jq2C87rw49PX0GYibFZd/ranvSBUpdR6BBKnXT9ZHRQe8iNgIeWj6y9UWSA1XHylPXEPN97Jpu6pgChk2PGi1EaWu/iv8p7HlybgV9dxACWnAbojtIu3kxZX8ZmWvo+mLWwbH57LYxI8wCdqZTR+fKmtvMPgcMAfaxg08lLiv6MZ9frtwZ4ULeh+7n0NKN8/dMrc0/MMh6mmdfn/vir4jn/B/nH4SR6QDBwAAAAAElFTkSuQmCC"/>
+            </div>
+            <div class="alertTexts">
+                <h2>Local 1</h2>
+                <p>Alerta de incidente na rota</p>
+            </div>
+        </div>
+        <div class="alert warn">
+            <div class="icon">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAeVJREFUSEuNVgGy6yAIXE5Wc7KkJ4vvZH5BRFCT3850aoxZYHchJQJQ0D5+vd/Qg/6mPBRRCCVgRuSniEt0HyyuZwi7O5L5D5oe1EwTQJ9axld5SED5VELkml4T/o0zDnArTzdAHOAAkJmaEGBQS/A8LpRHgc56eQ2S6JJqrEpH3z5hDaY3CUgFEAp0KwG4J5hB+6uLAC7/FJ8RklljoGUATMdZca7mRkkoF9nndZSYr+aMZrswKH87LfzLgna3H7XK3JzbA4wylE/bYCD+MEBf965JhHJr1kQoZ133oJa4E1lALQsBjHbcGb8LfBHw1Yd5j9n5jgraDtvrrlxnFOFVG3CoG1tezjMY68TJdaqC3k4D416E8003GgoNcDMeVIIliO+DJm6rgDn/qHPSkCgaWcRUF6noawBHxVkzVav9PJ6O0jq2C87rw49PX0GYibFZd/ranvSBUpdR6BBKnXT9ZHRQe8iNgIeWj6y9UWSA1XHylPXEPN97Jpu6pgChk2PGi1EaWu/iv8p7HlybgV9dxACWnAbojtIu3kxZX8ZmWvo+mLWwbH57LYxI8wCdqZTR+fKmtvMPgcMAfaxg08lLiv6MZ9frtwZ4ULeh+7n0NKN8/dMrc0/MMh6mmdfn/vir4jn/B/nH4SR6QDBwAAAAAElFTkSuQmCC"/>
+            </div>
+            <div class="alertTexts">
+                <h2>Local 1</h2>
+                <p>Alerta de incidente na rota</p>
+            </div>
+        </div>
+
+    </div>
+
+    <button class="btn-float" id="alertButton">Criar Alerta</button>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <script src="../../assets/scripts/mains/map.js"></script>
+    <script src="../../assets/scripts/mains/seletor.js"></script>
+    <script src="../../assets/scripts/mains/buttons.js"></script>
+</body>
+</html>
