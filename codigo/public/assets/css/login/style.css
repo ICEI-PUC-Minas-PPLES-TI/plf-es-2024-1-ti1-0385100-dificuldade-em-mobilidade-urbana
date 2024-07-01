@@ -1,0 +1,172 @@
+:root {
+    --background-primary: #171717;
+    --background-secondary: #27272a;
+    --background-third: #3f3f46;
+
+    --text-primary: #f9fafb;
+    --text-secondary: #f3f4f6;
+    --text-third: #e5e7eb;
+
+    --color-primary: #1d4ed8;
+    --color-primary-hover: #1e40af;
+    --color-primary-active: #1e3a8a;
+
+    --color-danger: #ef4444;
+    --color-danger-hover: #dc2626;
+    --color-danger-active: #b91c1c;
+
+    --color-warning: #f59e0b;
+    --color-warning-hover: #d97706;
+    --color-warning-active: #b45309;
+
+    --color-success: #10b981;
+    --color-success-hover: #047857;
+    --color-success-active: #065f46;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Popins', sans-serif;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+section .imgBox {
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+
+section .imgBox:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+section .imgBox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+section .contentBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+section .contentBox .formBox {
+    width: 50%;
+}
+
+section .contentBox .formBox h2 {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 4px solid var(--color-primary);
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
+section .contentBox .formBox .inputBox {
+    margin-bottom: 20px;
+}
+
+section .contentBox .formBox .inputBox span {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: var(--text-third);
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+section .contentBox .formBox .inputBox input {
+    width: 100%;
+    padding: 10px 20px;
+    outline: none;
+    font-weight: 400;
+    border: 1px solid var(--background-third);
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: var(--text-primary);
+    background: var(--background-secondary);
+    border-radius: 12px;
+}
+
+section .contentBox .formBox .inputBox button {
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border-radius: 12px;
+    background: var(--color-primary);
+    color: var(--text-primary);
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 15px 0px;
+}
+
+section .contentBox .formBox .inputBox p {
+    color: var(--text-primary);
+}
+
+section .contentBox .formBox .inputBox p a {
+    color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+    * {
+        background-color: transparent;
+    }
+
+    section .imgBox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    section .contentBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    section .contentBox .formBox {
+        width: 100%;
+        padding: 40px;
+        background: rgb(0 0 0 / 0.9);
+        margin: 50px;
+        border-radius: 15px;
+    }
+    section .contentBox .formBox .inputBox p a {
+        display: inline-block;
+    } 
+}

@@ -21,10 +21,8 @@ As requisições para a API devem seguir os seguintes padrões:
 |---|---|
 | `200` | Requisição executada com sucesso. |
 | `400` | Erros de validação dos dados. |
-| `401` | Erros de autenticação. |
 | `404` | Registro pesquisado não encontrado. |
 | `405` | Não implementado. |
-| `500` | Erros internos. |
 
 ## Exemplo de requisição
 
@@ -64,22 +62,15 @@ As requisições para a API devem seguir os seguintes padrões:
 
 ```javascript copy
     'PUT': '/getinfo/ID'
-    'BODY': nome, senha, layout, imagem
+    'BODY': 'BODY': nome, senha, layout, imagem
 ```
 
-### Alterar email de um usuário registrado
-
-```javascript copy
-    'PUT': '/changeEmail/ID'
-    'BODY': email
-```
-
-### Alterar senha de um usuário registrado
-
-```javascript copy
-    'PUT': '/changePassword/ID'
-    'BODY': senha
-```
+| Código | Descrição |
+|---|---|
+| `200` | Requisição executada com sucesso. |
+| `400` | Erros de validação dos dados. |
+| `404` | Registro pesquisado não encontrado. |
+| `405` | Não implementado. |
 
 ### Receber rotas registradas
 
@@ -90,7 +81,6 @@ As requisições para a API devem seguir os seguintes padrões:
 ```json copy
     [
         {
-            "name": "Nome da Rota",
             "stops": [
                 {
                     "endereco": "Endereço 1",
@@ -119,7 +109,6 @@ As requisições para a API devem seguir os seguintes padrões:
 
 ```json copy
     {
-        "name": "Nome da Rota",
         "stops": [
             {
                 "endereco": "Endereço 1",
@@ -174,81 +163,5 @@ As requisições para a API devem seguir os seguintes padrões:
         "latitude": "-19.9106942",
         "longitude": "-19.9106942",
         "id": "d7f8dd1a-3aec-435a-9464-18d0beb2332e"
-    }
-```
-
-### Receber feedbacks registrados
-
-```javascript copy
-    'GET': '/feedbacks'
-```
-
-```json copy
-    [
-        {
-            "routeId": "69bf89cd-1227-4ee5-b9a7-196762e213c3",
-            "userId": "xxxxx",
-            "datetime": "0000000000000",
-            "nota": 3,
-            "comentario": "Teste de comentário",
-            "id": "d7f8dd1a-3aec-435a-9464-18d0beb2332d"
-        }
-    ]
-```
-
-### Receber informações de um feedback registrado
-
-```javascript copy
-    'GET': '/feedbacks/ID'
-```
-
-```json copy
-    {
-        "routeId": "69bf89cd-1227-4ee5-b9a7-196762e213c3",
-        "userId": "xxxxx",
-        "datetime": "0000000000000",
-        "nota": 3,
-        "comentario": "Teste de comentário",
-        "id": "d7f8dd1a-3aec-435a-9464-18d0beb2332d"
-    }
-```
-
-### Receber endereços registrados
-
-```javascript copy
-    'GET': '/enderecos'
-```
-
-```json copy
-    [
-        {
-            "userId": "69bf89cd-1227-4ee5-b9a7-196762e213c3",
-            "titulo": "Faculdade",
-            "rua": "R. Cláudio Manoel",
-            "numero": 1162,
-            "cep": "30140-100",
-            "estado": "Minas Gerais",
-            "cidade": "Belo Horizonte",
-            "id": "315e17e3-d19a-489c-9648-9e3fb63d9ffe"
-        }
-    ]
-```
-
-### Receber informações de um endereço registrado
-
-```javascript copy
-    'GET': '/enderecos/ID'
-```
-
-```json copy
-    {
-        "userId": "69bf89cd-1227-4ee5-b9a7-196762e213c3",
-        "titulo": "Faculdade",
-        "rua": "R. Cláudio Manoel",
-        "numero": 1162,
-        "cep": "30140-100",
-        "estado": "Minas Gerais",
-        "cidade": "Belo Horizonte",
-        "id": "315e17e3-d19a-489c-9648-9e3fb63d9ffe"
     }
 ```

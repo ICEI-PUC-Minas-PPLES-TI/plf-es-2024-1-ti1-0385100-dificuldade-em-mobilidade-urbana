@@ -1,0 +1,110 @@
+{
+  "users": [
+    {
+      "nome": "Usuário exemplo",
+      "email": "exemplo@gmail.com",
+      "senha": "senha12345",
+      "layout": 0,
+      "imagem": "https://i.pinimg.com/originals/ab/76/60/ab766004ffb9531e0ed37ad82b75eb96.png"
+    },
+    {
+      "nome": "Teste",
+      "email": "teste@gmail.com",
+      "senha": "123",
+      "layout": 1
+    },
+    {
+      "nome": "Leonardo Galvão",
+      "email": "leogames@gmail.com",
+      "senha": "12345",
+      "layout": 1
+    }
+  ],
+  "routes": [
+    {
+      "name": "Rota de teste",
+      "stops": [
+        "9522527f-4e22-49cf-9672-d4ccd1953e23",
+        "65044443-9f85-40ff-ad88-90029b86f26c",
+        "ba720ecd-706d-474a-a94d-dd845c719eb3",
+        "3ded265e-d9cc-4255-9650-4a603ddffd95"
+      ],
+      "alerts": [
+        {
+          "id": "942fb807-c90b-4e26-9c81-988bce17c0bf",
+          "type": 1,
+          "datetime": "2024-07-01T20:14:43.368Z",
+          "accepted": false
+        },
+        {
+          "id": "1a13246b-eda9-4a29-896d-79516488f33c",
+          "type": 2,
+          "datetime": "2024-07-01T20:37:36.680Z",
+          "accepted": false
+        }
+      ],
+      "id": "64379d3f-769e-4f74-8fdc-3a55da4d7bbd"
+    },
+    {
+      "name": "Teste",
+      "stops": [
+        "9522527f-4e22-49cf-9672-d4ccd1953e23",
+        "65044443-9f85-40ff-ad88-90029b86f26c",
+        "ba720ecd-706d-474a-a94d-dd845c719eb3"
+      ],
+      "alerts": [
+        {
+          "id": "d7c31faa-4a9a-4e34-be3f-3d85916b76ac",
+          "type": 1,
+          "datetime": "2024-07-01T20:43:47.497Z",
+          "accepted": false
+        }
+      ],
+      "id": "bfa3a812-13c1-47d5-aef9-64255c6d8033"
+    },
+    {
+      "name": "Sla",
+      "stops": [
+        "9522527f-4e22-49cf-9672-d4ccd1953e23",
+        "65044443-9f85-40ff-ad88-90029b86f26c",
+        "2a2871c1-abbd-4a08-a02b-37b2dd58482f"
+      ],
+      "alerts": [],
+      "id": "3d806556-1309-4cd6-bae3-426b544a1890"
+    }
+  ],
+  "stops": [
+    {
+      "endereco": "Direita Baixo",
+      "latitude": "-19.933012",
+      "longitude": "-43.937666",
+      "id": "9522527f-4e22-49cf-9672-d4ccd1953e23"
+    },
+    {
+      "endereco": "Direita Cima",
+      "latitude": "-19.931255",
+      "longitude": "-43.937253",
+      "id": "65044443-9f85-40ff-ad88-90029b86f26c"
+    },
+    {
+      "endereco": "Esquerda Cima",
+      "latitude": "-19.931018",
+      "longitude": "-43.938264",
+      "id": "ba720ecd-706d-474a-a94d-dd845c719eb3"
+    },
+    {
+      "endereco": "Esquerda Baixo",
+      "latitude": "-19.932772",
+      "longitude": "-43.938858",
+      "id": "3ded265e-d9cc-4255-9650-4a603ddffd95"
+    },
+    {
+      "endereco": "Meio da cidade",
+      "latitude": "-19.922756",
+      "longitude": "-43.945155",
+      "id": "2a2871c1-abbd-4a08-a02b-37b2dd58482f"
+    }
+  ],
+  "feedbacks": [],
+  "enderecos": []
+}
