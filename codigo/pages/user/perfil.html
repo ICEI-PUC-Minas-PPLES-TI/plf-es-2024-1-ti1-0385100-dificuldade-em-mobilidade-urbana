@@ -27,12 +27,12 @@
   </header>
   <main>
     <div class="pagina container">
-      <div class="row">
+      <div class="col">
 
         <div class="imgPerfil col-auto mt-5">
           <img id="imgElement" src="https://pbs.twimg.com/media/EyQ9kUUXIAIDZXr.jpg">
         </div>
-        <div class="nomeInicial col-auto ms-5 hello">
+        <div class="nomeInicial col-auto hello">
           <h1>Olá, <span class="nameElements" id="nameElements">?????</span>!</h1>
           <div class="infoGeral">
             <div class="email">
@@ -47,16 +47,12 @@
             </div>
             <div class="deletarConta">
               <button id="confirmarDeletar" class="btn btn-padrao deletarContaBtn" data-bs-toggle="modal"
-                data-bs-target="#deletePopup">Excluir conta</button>
+                data-bs-target="#deletePopup">Sair da conta</button>
             </div>
-            <h3> Layouts:</h3>
-            <div class="layouts">
-              <div class="layoutUm" onclick="trocarTemplate(0)">
-                <img src="../../assets/images/perfil/Wireframe Idoso.png">
-              </div>
-              <div class="layoutDois" onclick="trocarTemplate(1)">
-                <img src="../../assets/images/perfil/Wireframe Jovem.png">
-              </div>
+            
+            <div id="favorites" class="favorites">
+              <h3>Rotas favoritas</h3>
+              <div id="favorites-list" class="favorites-list"></div>
             </div>
           </div>
         </div>
@@ -117,15 +113,15 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Confirmação de remoção</h5>
+          <h5 class="modal-title">Confirmação de saída</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
         </div>
         <div class="modal-body">
-          <p>Você tem certeza de que deseja deletar sua conta?</p>
+          <p>Você tem certeza de que deseja sair da sua conta?</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
-          <button type="button" class="btn btn-danger" onclick="removerCliente()">Sim!</button>
+          <button type="button" class="btn btn-danger" onclick="signOut()">Sim!</button>
         </div>
       </div>
     </div>
