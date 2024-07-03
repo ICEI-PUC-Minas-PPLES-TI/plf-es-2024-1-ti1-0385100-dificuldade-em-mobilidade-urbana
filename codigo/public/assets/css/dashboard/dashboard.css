@@ -1,0 +1,68 @@
+:root {
+    --background-primary: #171717;
+    --background-secondary: #27272a;
+    --background-third: #3f3f46;
+
+    --text-primary: #f9fafb;
+    --text-secondary: #f3f4f6;
+    --text-third: #e5e7eb;
+
+    --color-primary: #1d4ed8;
+    --color-primary-hover: #1e40af;
+    --color-primary-active: #1e3a8a;
+
+    --color-danger: #ef4444;
+    --color-danger-hover: #dc2626;
+    --color-danger-active: #b91c1c;
+
+    --color-warning: #f59e0b;
+    --color-warning-hover: #d97706;
+    --color-warning-active: #b45309;
+
+    --color-success: #10b981;
+    --color-success-hover: #047857;
+    --color-success-active: #065f46;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: var(--text-primary);
+    margin: 0;
+    font-size: 5rem;
+    text-transform: uppercase;
+}
+
+h2 {
+    color: var(--text-primary);
+    font-size: 2rem;
+    letter-spacing: .5rem;
+}
+
+a {
+    background-color: var(--color-primary);
+    color: var(--text-primary);
+    border: 0;
+    padding: 1rem 2rem;
+    margin-bottom: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    width: 10%;
+    text-align: center;
+    border-radius: 8px;
+}
+
+a:hover {
+    background-color: var(--color-primary-active);
+    transition: all .25s;
+}

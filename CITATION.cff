@@ -3,26 +3,26 @@ cff-version: 1.0.1
 message: Please cite this software using these metadata.
 title: Ideal Bus
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names:
+  - family-names: Viana Moraes
+    given-names: Marcelo Vinicius
+  - family-names: Novais Baranda
+    given-names: Pedro Henrique
+  - family-names: Rodrigues Maciel de Abreu
+    given-names: Gabriel
+  - family-names: Rodrigues e Silva
+    given-names: Andre Magalhaes
+  - family-names: Siqueira Dias de Jesus
+    given-names: Paloma
+  - family-names: Gonçalves Soares Dias
+    given-names: Vitor Hugo
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Vieira Carneiro
+    given-names: Rommel
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Alves Nogueira
+    given-names: Simone
 keywords:
   - 
   - 

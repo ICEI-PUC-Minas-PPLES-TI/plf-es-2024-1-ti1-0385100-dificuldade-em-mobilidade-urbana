@@ -1,0 +1,303 @@
+:root {
+    --background-primary: #171717;
+    --background-secondary: #27272a;
+    --background-third: #3f3f46;
+
+    --text-primary: #f9fafb;
+    --text-secondary: #f3f4f6;
+    --text-third: #e5e7eb;
+
+    --color-primary: #1d4ed8;
+    --color-primary-hover: #1e40af;
+    --color-primary-active: #1e3a8a;
+
+    --color-danger: #ef4444;
+    --color-danger-hover: #dc2626;
+    --color-danger-active: #b91c1c;
+
+    --color-warning: #f59e0b;
+    --color-warning-hover: #d97706;
+    --color-warning-active: #b45309;
+
+    --color-success: #10b981;
+    --color-success-hover: #047857;
+    --color-success-active: #065f46;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+header {
+    position: absolute;
+    z-index: 1000000;
+    background-color: var(--background-primary);
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    cursor: auto;
+    align-items: center;
+}
+
+header .headerBtns {
+    display: flex;
+    align-items: center;
+}
+
+header .headerImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    width: 70px;
+    height: 70px;
+    font-size: 3rem;
+    color: var(--text-primary);
+    background: transparent;
+    border: none;
+}
+
+header .headerImg:hover {
+    cursor: pointer;
+}
+
+header .headerBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    background: transparent;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+header .headerBtn:hover {
+    background-color: var(--background-third);
+    cursor: pointer;
+}
+
+header a {
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+header .headerLogo {
+    margin-left: 20px;
+    height: 50px;
+}
+
+#alertas {
+    display: none;
+}
+
+.alertas {
+    position: fixed;
+    z-index: 1000;
+    background-color: var(--background-primary);
+    width: 300px;
+    color: white;
+    right: 0;
+    top: 0;
+    padding: 20px;
+    margin: 120px 50px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    cursor: auto;
+}
+
+.alertas h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.alertas h2 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.alertas p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.alert {
+    padding: 7px;
+    border-radius: 12px;
+    border-bottom: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.alert:hover {
+    background-color: var(--background-third);
+    cursor: pointer;
+    padding: 7px;
+    border-radius: 12px;
+    border-bottom: 12px;
+}
+
+.alert .icon {
+    font-size: 1.5rem;
+    padding: 8px;
+    border-radius: 12px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.danger .icon {
+    background-color: var(--color-danger);
+}
+
+.warn .icon {
+    background-color: var(--color-warning);
+}
+
+.timer .icon {
+    background-color: var(--color-primary);
+}
+
+.danger h2 {
+    color: var(--color-danger);
+}
+
+.warn h2 {
+    color: var(--color-warning);
+}
+
+.timer h2 {
+    color: var(--color-primary);
+}
+
+.seletor {
+    cursor: auto;
+    position: fixed;
+    z-index: 1000;
+    background-color: var(--background-primary);
+    width: 300px;
+    color: white;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    margin: 120px 50px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.seletor span {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: var(--text-third);
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.seletor input {
+    width: 90%;
+    padding: 10px 5%;
+    outline: none;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: var(--background-primary);
+    background: var(--text-third);
+    border-radius: 12px;
+    display: block;
+    margin-bottom: 24px;
+}
+
+.seletor button {
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border-radius: 12px;
+    background: var(--color-primary);
+    color: var(--text-primary);
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 15px 0px;
+    margin-bottom: 20px;
+}
+
+.selectRoute {
+    display: none;
+}
+
+.seletorTitle {
+    display: flex;
+    align-items: center;
+}
+
+.seletorTitle button {
+    border-radius: 6px;
+    padding: 1px 0 0 0;
+    margin: 0 20px 0 0;
+    background-color: var(--background-third);
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.seletorTitle button i {
+    color: var(--text-third);
+    font-size: 1.5rem;
+}
+
+.seletorTitle button:hover i {
+    color: var(--text-primary);
+}
+
+.seletorTitle button:hover {
+    background-color: var(--color-danger);
+}
+
+.suggestion-item {
+    padding: 12px;
+    background-color: var(--background-secondary);
+    margin: 4px 0;
+    border-radius: 12px;
+}
+
+.suggestion-item:hover {
+    background-color: var(--background-third);
+    cursor: pointer;
+}
+
+.btn-float {
+    font-size: 1.3rem !important;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: var(--color-primary);
+    border: none;
+    color: var(--text-primary);
+    display: none;
+    cursor: pointer;
+}
