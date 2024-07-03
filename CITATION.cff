@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
 title: Ideal Bus
@@ -24,11 +23,9 @@ authors:
     family-names: Alves Nogueira
     given-names: Simone
 keywords:
-  - 
-  - 
+  - Mobilidade Urbana
+  - Dificuldade
 repository-code: plf-es-2024-1-ti1-0385100-dificuldade-em-mobilidade-urbana
 license: CC-BY-4.0
 version: 1.0.0
 date-released: 2022-07-14
-=======
->>>>>>> 576e4073eb686b7caee5801aac8f95491eb4d605
