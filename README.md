@@ -4,7 +4,6 @@ A Ideal Bus tem como objetivo principal sanar diversos desafios que afetam a exp
 
 ## Alunos integrantes da equipe
 
-* Andre Magalhaes Rodrigues e Silva
 * Gabriel Rodrigues Maciel de Abreu
 * Marcelo Vinicius Viana Moraes
 * Paloma Siqueira Dias de Jesus
