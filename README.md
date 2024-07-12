@@ -18,4 +18,15 @@ A Ideal Bus tem como objetivo principal sanar diversos desafios que afetam a exp
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+Acesse o site da [Ideal Bus](https://idealbus.discloud.app)
+
+### Como usuário
+Faça login ou registre sua nova conta no sistema
+Selecione o ponto que queira ver as rotas
+Na aba favoritas, irão aparecer as rotas previamente selecionadas, você poderá favoritá-las para ajudar a construir seu perfil
+Na aba perfil você poderá ver e editar sua informações
+
+### Como administrador
+Faça login com o usuário de administrador do sistema
+Selecione pontos para criar, alterar e excluir pontos do sistema
+Selecione rotas para criar, alterar e excluir as rotas do sistema
